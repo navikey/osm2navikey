@@ -1,0 +1,466 @@
+﻿<tags version="1.00">
+  <poi type="0x1200">
+    <tag>Пристань</tag>
+  </poi>
+  <poi type="0x1c09-0x1c0a">
+    <tag>Риф</tag>
+  </poi>
+  <poi type="0x1c0b">
+    <tag>Мель</tag>
+  </poi>
+  <poi type="0x2a00-0x2a09,0x2a0b-0x2a12,0x4500">
+    <tag>Кафе</tag>
+    <tag>Ресторан</tag>
+    <tag>Restaurant</tag>
+    <tag>Cafe</tag>
+  </poi>
+  <poi type="0x2a0a">
+    <tag>Кафе</tag>
+    <tag>Пицца</tag>
+    <tag>Пиццерия</tag>
+    <tag>Pizza</tag>
+    <tag>Cafe</tag>
+  </poi>
+
+  <poi type="0x2b00,0x2b02,0x2b04">
+    <tag>Гостиница</tag>
+    <tag>Отель</tag>
+    <tag>Hotel</tag>
+  </poi>
+  <poi type="0x2b01">
+    <tag>Гостиница</tag>
+    <tag>Отель</tag>
+    <tag>Мотель</tag>
+    <tag>Motel</tag>
+  </poi>
+  <poi type="0x2b03,0x4800">
+    <tag>Кемпинг</tag>
+    <tag>Camping</tag>
+  </poi>
+
+  <poi type="0x2c01,0x4900,0x640e">
+    <tag>Парк</tag>
+    <tag>Park</tag>
+  </poi>
+  <poi type="0x2c02">
+    <tag>Музей</tag>
+    <tag>Museum</tag>
+  </poi>
+  <poi type="0x2c03">
+    <tag>Библиотека</tag>
+    <tag>Library</tag>
+  </poi>
+  <poi type="0x2c05,0x6410">
+    <tag>Школа</tag>
+    <tag>School</tag>
+  </poi>
+  <poi type="0x2c06">
+    <tag>Парк</tag>
+    <tag>Сад</tag>
+    <tag>Park</tag>
+  </poi>
+  <poi type="0x2c07">
+    <tag>Зоопарк</tag>
+    <tag>Zoo</tag>
+  </poi>
+  <poi type="0x2c08">
+    <tag>Стадион</tag>
+    <tag>Stadium</tag>
+  </poi>
+
+  <poi type="0x2d01">
+    <tag>Театр</tag>
+    <tag>Theatre</tag>
+  </poi>
+  <poi type="0x2d02">
+    <tag>Ночной клуб</tag>
+    <tag>Nightclub</tag>
+  </poi>
+  <poi type="0x2d03">
+    <tag>Кинотеатр</tag>
+    <tag>Cinema</tag>
+  </poi>
+  <poi type="0x2d04">
+    <tag>Казино</tag>
+    <tag>Casino</tag>
+  </poi>
+  <poi type="0x2d05">
+    <tag>Гольф</tag>
+    <tag>Golf</tag>
+  </poi>
+  <poi type="0x2d06,0x5300">
+    <tag>Лыжи</tag>
+    <tag>Skiing</tag>
+  </poi>
+  <poi type="0x2d07">
+    <tag>Боулинг</tag>
+    <tag>Bowling</tag>
+  </poi>
+  <poi type="0x2d08">
+    <tag>Каток</tag>
+    <tag>Skating</tag>
+  </poi>
+  <poi type="0x2d09">
+    <tag>Бассейн</tag>
+    <tag>Swimming</tag>
+  </poi>
+  <poi type="0x2d0a">
+    <tag>Спортзал</tag>
+    <tag>Фитнесс</tag>
+    <tag>Fitness</tag>
+  </poi>
+  <poi type="0x2d0b">
+    <tag>Аэродром</tag>
+    <tag>Aerodrome</tag>
+  </poi>
+
+  <poi type="0x2e00,0x2e02,0x2e06,0x2e0a">
+    <tag>Магазин</tag>
+    <tag>Shop</tag>
+  </poi>
+  <poi type="0x2e01,0x2e03">
+    <tag>Магазин</tag>
+    <tag>Универмаг</tag>
+    <tag>Supermarket</tag>
+  </poi>
+  <poi type="0x2e04">
+    <tag>Магазин</tag>
+    <tag>Торговый центр</tag>
+    <tag>Supermarket</tag>
+  </poi>
+  <poi type="0x2e05">
+    <tag>Аптека</tag>
+    <tag>Лекарства</tag>
+    <tag>Pharmacy</tag>
+  </poi>
+  <poi type="0x2e07">
+    <tag>Магазин</tag>
+    <tag>Одежда</tag>
+    <tag>Clothes</tag>
+  </poi>
+  <poi type="0x2e08">
+    <tag>Магазин</tag>
+    <tag>Хозяйственный</tag>
+    <tag>Gardening</tag>
+  </poi>
+  <poi type="0x2e09">
+    <tag>Магазин</tag>
+    <tag>Мебель</tag>
+    <tag>Furniture</tag>
+  </poi>
+  <poi type="0x2e0b">
+    <tag>Компьютеры</tag>
+  </poi>
+
+  <poi type="0x2f01">
+    <tag>АЗС</tag>
+    <tag>Заправка</tag>
+    <tag>Бензин</tag>
+    <tag>Fuel</tag>
+    <tag>Gas</tag>
+  </poi>
+  <poi type="0x2f02">
+    <tag>Прокат автомобилей</tag>
+    <tag>Аренда автомобилей</tag>
+    <tag>Car rental</tag>
+  </poi>
+  <poi type="0x2f03">
+    <tag>Автосервис</tag>
+    <tag>Сервис</tag>
+    <tag>Car repair</tag>
+  </poi>
+  <poi type="0x2f04">
+    <tag>Автовокзал</tag>
+    <tag>Bus station</tag>
+  </poi>
+  <poi type="0x2f05,0x640f">
+    <tag>Почта</tag>
+    <tag>Post office</tag>
+  </poi>
+  <poi type="0x2f06">
+    <tag>Банк</tag>
+    <tag>Bank</tag>
+  </poi>
+  <poi type="0x2f07">
+    <tag>Автомагазин</tag>
+  </poi>
+  <poi type="0x2f08">
+    <tag>Остановка транспорта</tag>
+    <tag>Bus Stop</tag>
+  </poi>
+  <poi type="0x2f0a">
+    <tag>Аварийная служба</tag>
+    <tag>Техпомощь</tag>
+    <tag>Emergency Service</tag>
+  </poi>
+  <poi type="0x2f0b">
+    <tag>Автостоянка</tag>
+    <tag>Парковка</tag>
+    <tag>Parking</tag>
+  </poi>
+  <poi type="0x2f0d">
+    <tag>Автоклуб</tag>
+    <tag>Autoclub</tag>
+  </poi>
+  <poi type="0x2f0e">
+    <tag>Автомойка</tag>
+    <tag>Мойка</tag>
+    <tag>Car Wash</tag>
+  </poi>
+  <poi type="0x2f0f">
+    <tag>Навигация</tag>
+    <tag>GPS</tag>
+  </poi>
+  <poi type="0x2f10,0xF604">
+    <tag>Химчистка</tag>
+    <tag>Прачечная</tag>
+    <tag>Dry Cleaning</tag>
+  </poi>
+  <poi type="0x2f12">
+    <tag>Почта</tag>
+    <tag>Post Office</tag>
+    <tag>Phone</tag>
+  </poi>
+  <poi type="0x2f14">
+    <tag>Собес</tag>
+    <tag>Social Service</tag>
+  </poi>
+  <poi type="0x2f15">
+    <tag>Коммунальная служба</tag>
+    <tag>ЖЭК</tag>
+    <tag>ТСЖ</tag>
+  </poi>
+  <poi type="0x2f16">
+    <tag>Парковка</tag>
+    <tag>Автостоянка</tag>
+    <tag>Parking</tag>
+  </poi>
+  <poi type="0x2f17">
+    <tag>Остановка</tag>
+    <tag>Bus Stop</tag>
+  </poi>
+
+  <poi type="0x3001">
+    <tag>Милиция</tag>
+    <tag>Полиция</tag>
+    <tag>Police</tag>
+  </poi>
+  <poi type="0x3002,0x6408">
+    <tag>Больница</tag>
+    <tag>Hospital</tag>
+  </poi>
+  <poi type="0x3003">
+    <tag>Мэрия</tag>
+    <tag>Администрация</tag>
+    <tag>TownHall</tag>
+  </poi>
+  <poi type="0x3004">
+    <tag>Суд</tag>
+    <tag>Courthouse</tag>
+  </poi>
+  <poi type="0x3006">
+    <tag>Таможня</tag>
+    <tag>Customs</tag>
+  </poi>
+  <poi type="0x3007">
+    <tag>Администрация</tag>
+    <tag>Goverment Building</tag>
+  </poi>
+  <poi type="0x3008">
+    <tag>Пожарная часть</tag>
+    <tag>Fire Station</tag>
+  </poi>
+
+  <poi type="0x4000">
+    <tag>Гольф</tag>
+    <tag>Golf</tag>
+  </poi>
+  <poi type="0x4100">
+    <tag>Рыбалка</tag>
+    <tag>Fishing</tag>
+  </poi>
+  <poi type="0x4400">
+    <tag>АЗС</tag>
+    <tag>Заправка</tag>
+    <tag>Бензин</tag>
+    <tag>Fuel</tag>
+    <tag>Gas</tag>
+  </poi>
+  <poi type="0x4600">
+    <tag>Бар</tag>
+    <tag>Pub</tag>
+  </poi>
+  <poi type="0x4a00">
+    <tag>Пикник</tag>
+    <tag>Picnic</tag>
+  </poi>
+  <poi type="0x4b00">
+    <tag>Больница</tag>
+    <tag>Медпункт</tag>
+    <tag>Hospital</tag>
+  </poi>
+  <poi type="0x4d00">
+    <tag>Автостоянка</tag>
+    <tag>Парковка</tag>
+    <tag>Parking</tag>
+  </poi>
+  <poi type="0x4e00">
+    <tag>Туалет</tag>
+    <tag>Toilets</tag>
+  </poi>
+  <poi type="0x4f00">
+    <tag>Душ</tag>
+    <tag>Shower</tag>
+  </poi>
+  <poi type="0x5000">
+    <tag>Питьевая вода</tag>
+    <tag>Drinking Water</tag>
+  </poi>
+  <poi type="0x5100">
+    <tag>Телефон</tag>
+    <tag>Phone</tag>
+  </poi>
+  <poi type="0x5400">
+    <tag>Бассейн</tag>
+    <tag>Пляж</tag>
+    <tag>Swimming</tag>
+  </poi>
+
+  <poi type="0x5900-0x5903,0x5905">
+    <tag>Аэропорт</tag>
+    <tag>Aerodrome</tag>
+  </poi>
+  <poi type="0x5904">
+    <tag>Вертолетная площадка</tag>
+    <tag>Helipad</tag>
+  </poi>
+
+  <poi type="0x5c00">
+    <tag>Дайвинг</tag>
+    <tag>Diving</tag>
+  </poi>
+
+  <poi type="0x6401">
+    <tag>Мост</tag>
+    <tag>Bridge</tag>
+  </poi>
+  <poi type="0x640c">
+    <tag>Шахта</tag>
+    <tag>Рудник</tag>
+    <tag>Mine</tag>
+  </poi>
+  <poi type="0x6414">
+    <tag>Питьевая вода</tag>
+    <tag>Родник</tag>
+    <tag>Колодец</tag>
+    <tag>Drinking Water</tag>
+  </poi>
+
+  <poi type="0xF001,0xF002">
+    <tag>Автобус</tag>
+    <tag>Bus Stop</tag>
+  </poi>
+  <poi type="0xF003">
+    <tag>Трамвай</tag>
+    <tag>Tram Stop</tag>
+  </poi>
+  <poi type="0xF004">
+    <tag>Троллейбус</tag>
+    <tag>Bus Stop</tag>
+  </poi>
+  <poi type="0xF005">
+    <tag>Метро</tag>
+    <tag>SubWay</tag>
+  </poi>
+  <poi type="0xF006">
+    <tag>Станция</tag>
+    <tag>Платформа</tag>
+    <tag>RailWay</tag>
+  </poi>
+  <poi type="0xF007">
+    <tag>Вокзал</tag>
+    <tag>RailWay</tag>
+  </poi>
+  <poi type="0xF008">
+    <tag>Монорельс</tag>
+    <tag>RailWay</tag>
+  </poi>
+  <poi type="0xF009">
+    <tag>Фуникулер</tag>
+    <tag>Aerialway</tag>
+  </poi>
+  <poi type="0xF00a">
+    <tag>Порт</tag>
+    <tag>Port</tag>
+  </poi>
+  <poi type="0xF00b">
+    <tag>Пристань</tag>
+    <tag>Dock</tag>
+  </poi>
+  <poi type="0xF00c">
+    <tag>Паром</tag>
+  </poi>
+
+  <poi type="0xF202">
+    <tag>Пост ГАИ</tag>
+    <tag>Пост ДПС</tag>
+    <tag>Police</tag>
+  </poi>
+  <poi type="0xF203">
+    <tag>Переезд</tag>
+    <tag>RailWay Crossing</tag>
+  </poi>
+  <poi type="0xF208">
+    <tag>АГЗС</tag>
+    <tag>Газовая заправка</tag>
+    <tag>Газ</tag>
+    <tag>Fuel</tag>
+  </poi>
+  <poi type="0xF209">
+    <tag>Шиномонтаж</tag>
+  </poi>
+
+  <poi type="0xF601">
+    <tag>Банкомат</tag>
+    <tag>ATM</tag>
+  </poi>
+  <poi type="0xF602">
+    <tag>Парикмахерская</tag>
+    <tag>Hairdresser</tag>
+  </poi>
+  <poi type="0xF603">
+    <tag>Баня</tag>
+    <tag>Сауна</tag>
+  </poi>
+  <poi type="0xF605">
+    <tag>Фотография</tag>
+    <tag>Фотосалон</tag>
+  </poi>
+  <poi type="0xF606">
+    <tag>Ателье</tag>
+  </poi>
+  <poi type="0xF60c">
+    <tag>Юрист</tag>
+  </poi>
+  <poi type="0xF60d">
+    <tag>Нотариус</tag>
+  </poi>
+  <poi type="0xF613">
+    <tag>Турагенство</tag>
+    <tag>Туризм</tag>
+  </poi>
+  <poi type="0xF614">
+    <tag>Авиакасса</tag>
+    <tag>ЖД касса</tag>
+    <tag>Билеты</tag>
+  </poi>
+  <poi type="0xF615">
+    <tag>Интернет wifi</tag>
+    <tag>wifi</tag>
+  </poi>
+  <poi type="0xF616">
+    <tag>Интернет Кафе</tag>
+    <tag>Internet</tag>
+  </poi>
+
+</tags>
