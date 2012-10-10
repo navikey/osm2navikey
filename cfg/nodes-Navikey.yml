@@ -1,0 +1,1774 @@
+--- nodes
+---
+
+##  Special nodes
+
+- condition:
+    - only_node
+    - building = entrance
+  action:
+    - action: load_building_entrance
+      name: %entrance
+
+- condition:
+    - only_node
+    - entrance = main
+  action:
+    - action: load_main_entrance        
+
+# POIs
+
+- condition:
+    - aerialway = station
+  action:
+    - action: write_poi
+      type: 0xf009
+      contacts: yes
+
+- condition:
+    - aeroway = aerodrome
+    - iata != *
+  action:
+    - action: write_poi
+      type: 0x5900
+      level_h: 2
+      contacts: yes
+- condition:
+    - aeroway = aerodrome
+    - iata = *
+  action:
+    - action: write_poi
+      type: 0x5901
+      level_h: 4
+      contacts: yes
+
+- condition:
+    - aeroway = helipad
+  action:
+    - action: write_poi
+      type: 0x5904
+      level_h: 1
+      contacts: yes
+- condition:
+    - aeroway = terminal
+  action:
+    - action: write_poi
+      type: 0x2f04
+      level_h: 1
+      contacts: yes
+
+- condition:
+    - amenity = arts_centre
+  action:
+    - action: write_poi
+      type: 0x2c09
+      contacts: yes
+- condition:
+    - or:
+        - amenity = atm
+        - and:
+            - amenity = bank
+            - atm = yes
+  action:
+    - action: write_poi
+      type: 0xf601
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = bank|bureau_de_change
+  action:
+    - action: write_poi
+      type: 0x2f06
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = bar|nightclub|stripclub
+  action:
+    - action: write_poi
+      type: 0x2d02
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = biergarten|pub
+  action:
+    - action: write_poi
+      type: 0x4600
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = bus_station
+  action:
+    - action: write_poi
+      type: 0xf001
+      contacts: yes
+- condition:
+    - amenity = cafe
+    - cuisine != pizza
+  action:
+    - action: write_poi
+      type: 0x2a0e
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = car_sharing|car_rental
+  action:
+    - action: write_poi
+      type: 0x2f02
+      contacts: yes
+- condition:
+    - amenity = car_wash
+  action:
+    - action: write_poi
+      type: 0x2f0e
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = casino
+  action:
+    - action: write_poi
+      type: 0x2d04
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = cinema
+  action:
+    - action: write_poi
+      type: 0x2d03
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = college
+  action:
+    - action: write_poi
+      type: 0xf503
+      contacts: yes
+- condition:
+    - amenity = community_centre|social_centre
+  action:
+    - action: write_poi
+      type: 0x3005
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = courthouse
+  action:
+    - action: write_poi
+      type: 0x3004
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = dentist
+  action:
+    - action: write_poi
+      type: 0xf801
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - amenity = doctors
+        - healthcare = doctor|blood_bank
+  action:
+    - action: write_poi
+      type: 0x4b00
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = drinking_water
+  action:
+    - action: write_poi
+      type: 0x5000
+- condition:
+    - amenity = driving_school
+  action:
+    - action: write_poi
+      type: 0xf505
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - amenity = embassy|prison
+        - office = employment_agency|government
+  action:
+    - action: write_poi
+      type: 0x3007
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = fast_food|food_court
+    - cuisine != pizza
+  action:
+    - action: write_poi
+      type: 0x2a07
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - amenity = ferry_terminal
+        - and:
+            - public_transport = stop_position
+            - ferry = yes
+  action:
+    - action: write_poi
+      type: 0xf00c
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = fire_station
+  action:
+    - action: write_poi
+      type: 0x3008
+      contacts: yes
+- condition:
+    - amenity = fountain
+  action:
+    - action: write_poi
+      type: 0xf302
+- condition:
+    - amenity = fuel
+    - fuel:lpg != yes
+    - fuel:cng != yes
+  action:
+    - action: write_poi
+      type: 0x2f01
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = fuel
+    - fuel:lpg = yes
+    - fuel:cng != yes
+  action:
+    - action: write_poi
+      type: 0xf208
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = fuel
+    - fuel:cng = yes
+  action:
+    - action: write_poi
+      type: 0xf208
+      contacts: yes
+      Label: %label (АГНКС)
+      Text: %opening_hours
+- condition:
+    - or:
+        - amenity = grave_yard|crematorium
+        - landuse = cemetery
+  action:
+    - action: write_poi
+      type: 0x6403
+      contacts: yes
+- condition:
+    - amenity = hospital
+  action:
+    - action: write_poi
+      type: 0x3002
+      level_h: 1
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = kindergarten
+  action:
+    - action: write_poi
+      type: 0xf501
+      contacts: yes
+- condition:
+    - amenity = library
+  action:
+    - action: write_poi
+      type: 0x2c03
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = marketplace
+  action:
+    - action: write_poi
+      type: 0xf701
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = nursing_home|social_facility
+  action:
+    - action: write_poi
+      type: 0x2f14
+      contacts: yes
+- condition:
+    - amenity = parking
+    - access != private
+    - parking != no|garages|garage_boxes
+    - hgv != yes|designated
+  action:
+    - action: write_poi
+      type: 0x2f0b
+      contacts: yes
+- condition:
+    - amenity = parking
+    - access != private
+    - parking != no|garages|garage_boxes
+    - hgv = yes|designated
+  action:
+    - action: write_poi
+      type: 0x2f16
+      contacts: yes
+- condition:
+    - or:
+        - amenity = pharmacy
+        - shop = optician
+  action:
+    - action: write_poi
+      type: 0x2e05
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - amenity = place_of_worship
+        - building = church
+    - and:
+        - religion != muslim|jewish|buddhist|hindu
+        - or:
+            - religion != christian
+            - denomination != \w*orthodox|old_believers|\w*catholic|baptist|evangelical|lutheran|methodist|presbyterian|protestant
+  action:
+    - action: write_poi
+      type: 0x2c0b
+      level_h: 1
+      contacts: yes
+- condition:
+    - or:
+        - amenity = place_of_worship
+        - building = church
+    - religion = christian
+    - denomination = \w*orthodox|old_believers
+  action:
+    - action: write_poi
+      type: 0xf101
+      level_h: 1
+      contacts: yes
+- condition:
+    - or:
+        - amenity = place_of_worship
+        - building = church
+    - religion = christian
+    - denomination = \w*catholic
+  action:
+    - action: write_poi
+      type: 0xf102
+      level_h: 1
+      contacts: yes
+- condition:
+    - or:
+        - amenity = place_of_worship
+        - building = church
+    - religion = christian
+    - denomination = baptist|evangelical|lutheran|methodist|presbyterian|protestant
+  action:
+    - action: write_poi
+      type: 0xf103
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = place_of_worship
+    - religion = muslim
+  action:
+    - action: write_poi
+      type: 0xf104
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = place_of_worship
+    - religion = jewish
+  action:
+    - action: write_poi
+      type: 0xf105
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = place_of_worship
+    - religion = buddhist|hindu
+  action:
+    - action: write_poi
+      type: 0xf106
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = police
+    - name != ДПС|[Пп]ост ДПС
+  action:
+    - action: write_poi
+      type: 0x3001
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = police
+    - name = ДПС|[Пп]ост ДПС
+  action:
+    - action: write_poi
+      type: 0xf202
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = post_office
+  action:
+    - action: write_poi
+      type: 0x2f05
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = public_building
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x6405
+      contacts: yes
+- condition:
+    - amenity = restaurant
+    - cuisine != asian|barbecue|cake|chinese|burger|chicken|italian|pizza|mexican|sandwich|seafood|coffee_shop|french|german
+  action:
+    - action: write_poi
+      type: 0x4500
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = asian
+  action:
+    - action: write_poi
+      type: 0x2a02
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = barbecue
+  action:
+    - action: write_poi
+      type: 0x2a03
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant|cafe
+    - cuisine = cake
+  action:
+    - action: write_poi
+      type: 0x2a0d
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = chinese
+  action:
+    - action: write_poi
+      type: 0x2a04
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant|cafe
+    - cuisine = burger|chicken|sandwich
+  action:
+    - action: write_poi
+      type: 0x2a07
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = italian
+  action:
+    - action: write_poi
+      type: 0x2a08
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = mexican
+  action:
+    - action: write_poi
+      type: 0x2a09
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant|cafe|fast_food|food_court
+    - cuisine = pizza
+  action:
+    - action: write_poi
+      type: 0x2a0a
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = seafood
+  action:
+    - action: write_poi
+      type: 0x2a0b
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = coffee_shop
+  action:
+    - action: write_poi
+      type: 0x2a0e
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = french
+  action:
+    - action: write_poi
+      type: 0x2a0f
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = restaurant
+    - cuisine = german
+  action:
+    - action: write_poi
+      type: 0x2a10
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - amenity = sauna
+        - leisure = sauna
+  action:
+    - action: write_poi
+      type: 0xf603
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - amenity = school
+  action:
+    - action: write_poi
+      type: 0x2c05
+      contacts: yes
+- condition:
+    - or:
+        - amenity = shelter
+        - tourism = alpine_hut|chalet
+  action:
+    - action: write_poi
+      type: 0x6100
+- condition:
+    - or:
+        - amenity = telephone|emergency_phone
+        - emergency = phone
+  action:
+    - action: write_poi
+      type: 0x5100
+- condition:
+    - amenity = theatre
+  action:
+    - action: write_poi
+      type: 0x2d01
+      contacts: yes
+- condition:
+    - amenity = toilets
+  action:
+    - action: write_poi
+      type: 0x4e00
+      contacts: yes
+- condition:
+    - amenity = townhall
+  action:
+    - action: write_poi
+      type: 0x3003
+      level_h: 1
+      contacts: yes
+- condition:
+    - amenity = university
+  action:
+    - action: write_poi
+      type: 0xf504
+      contacts: yes
+- condition:
+    - amenity = veterinary
+  action:
+    - action: write_poi
+      type: 0xf802
+      contacts: yes
+      Text: %opening_hours
+
+- condition:
+    - barrier = block|gate|lift_gate
+    - access = no|private|destination
+  action:
+    - action: write_poi
+      type: 0xf207
+
+- condition:
+    - barrier = border_control
+  action:
+    - action: write_poi
+      type: 0x3006
+      level_h: 1
+      contacts: yes
+- condition:
+    - barrier = toll_booth
+  action:
+    - action: write_poi
+      type: 0x2500
+
+- condition:
+    - boundary = administrative
+    - admin_level = 4
+    - only_rel
+  action:
+    - action: write_poi
+      type: 0x1500
+      level_l: 4
+      level_h: 4
+- condition:
+    - boundary = administrative
+    - admin_level = 6
+    - only_rel
+  action:
+    - action: write_poi
+      type: 0x1E00
+      level_l: 3
+      level_h: 4
+
+- condition:
+    - building = *
+    - building != no|collapsed
+    - addr:housenumber = *
+    - amenity != *
+    - shop != *
+    - tourism != *
+    - only_node
+    - inside_city
+  action:
+    - action: write_poi
+      type: 0x2800
+      Label: %house
+      contacts: yes
+- condition:
+    - building = *
+    - building != no|collapsed
+    - abandoned != yes
+    - only_node
+    - ~inside_city
+  action:
+    - action: write_poi
+      type: 0x6100
+      contacts: yes
+- condition:
+    - building = *
+    - or:
+        - building = no|collapsed
+        - abandoned = yes
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x6415
+      contacts: yes
+- condition:
+    - or:
+        - addr2:street = *
+        - addr:street2 = *
+        - addr2:housenumber = *
+        - addr:housenumber2 = *
+  action:
+    - action: write_poi
+      type: 0x2800
+      contacts: yes
+      Label: 
+      StreetDesc: %street2
+      HouseNumber: %house2
+
+- condition:
+    - craft = carpenter
+  action:
+    - action: write_poi
+      type: 0xf60b
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - craft = tailor
+        - shop = tailor
+  action:
+    - action: write_poi
+      type: 0xf606
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - craft = electrician|plumber|hvac|locksmith
+  action:
+    - action: write_poi
+      type: 0x2f13
+      contacts: yes
+      Text: %opening_hours
+
+- condition:
+    - or:
+        - barrier = sally_port
+        - covered = yes
+  action:
+    - action: write_poi
+      type: 0x6601
+
+- condition:
+    - highway = bus_stop
+  action:
+    - action: write_poi
+      type: 0xf002
+      contacts: yes
+- condition:
+    - or:
+        - highway = ford
+        - ford = yes
+  action:
+    - action: write_poi
+      type: 0xf307
+- condition:
+    - highway = mini_roundabout
+  action:
+    - action: write_poi
+      type: 0xf20c
+- condition:
+    - highway = rest_area|services
+    - hgv != yes|designated
+  action:
+    - action: write_poi
+      type: 0x2f0b
+      level_h: 1
+- condition:
+    - highway = rest_area|services
+    - hgv = yes|designated
+  action:
+    - action: write_poi
+      type: 0x2f16
+      level_h: 1
+- condition:
+    - highway = speed_camera
+    - only_node
+  action:
+    - action: write_poi
+      type: 0xf205
+- condition:
+    - or:
+        - highway = traffic_signals
+        - and:
+            - highway = crossing
+            - crossing = traffic_signals
+  action:
+    - action: write_poi
+      type: 0xf201
+
+- condition:
+    - historic = archaeological_site|battlefield|castle|ruins
+  action:
+    - action: write_poi
+      type: 0x2c04
+- condition:
+    - historic = memorial|monument|wayside_cross|wayside_shrine
+  action:
+    - action: write_poi
+      type: 0xf301
+- condition:
+    - historic = wreck
+  action:
+    - action: write_poi
+      type: 0x4200
+
+- condition:
+    - internet_access = public|wlan
+  action:
+    - action: write_poi
+      type: 0xf615
+
+- condition:
+    - or:
+        - landuse = forest
+        - natural = wood
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x660a
+      level_h: 1
+- condition:
+    - landuse = peat_cutting
+  action:
+    - action: write_poi
+      type: 0xf30b
+- condition:
+    - landuse = quarry
+    - resource != peat
+  action:
+    - action: write_poi
+      type: 0x640c
+      Label: %label (Карьер)
+- condition:
+    - landuse = residential
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x6100
+
+- condition:
+    - leisure = dance
+  action:
+    - action: write_poi
+      type: 0x2d00
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - leisure = fishing
+  action:
+    - action: write_poi
+      type: 0x4100
+- condition:
+    - leisure = garden|park
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x2c06
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - leisure = ice_rink
+        - sport = hockey|skating
+  action:
+    - action: write_poi
+      type: 0x2d08
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - leisure = marina
+  action:
+    - action: write_poi
+      type: 0x4300
+- condition:
+    - leisure = nature_reserve
+  action:
+    - action: write_poi
+      type: 0x6612
+- condition:
+    - leisure = sports_centre
+    - building = *
+    - sport != 9pin|10pin|bowls|golf|hockey|motor|skating|skiing|scuba_diving|swimming
+  action:
+    - action: write_poi
+      type: 0x2d0a
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - leisure = stadium|track
+        - and:
+            - leisure = sports_centre
+            - building != *
+    - sport != 9pin|10pin|bowls|golf|hockey|motor|skating|skiing|scuba_diving|swimming
+    - named
+  action:
+    - action: write_poi
+      type: 0x2c08
+      level_h: 1
+      contacts: yes
+- condition:
+    - or:
+        - leisure = theme_park
+        - tourism = theme_park
+  action:
+    - action: write_poi
+      type: 0x2c01
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - leisure = water_park
+  action:
+    - action: write_poi
+      type: 0x5400
+      contacts: yes
+      Text: %opening_hours
+
+- condition:
+    - man_made = chimney
+  action:
+    - action: write_poi
+      type: 0x6411
+- condition:
+    - man_made = lighthouse
+  action:
+    - action: write_poi
+      type: 0x1600
+      level_h: 1
+- condition:
+    - man_made = adit|mineshaft
+  action:
+    - action: write_poi
+      type: 0x640c
+      level_h: 1
+- condition:
+    - man_made = petroleum_well
+  action:
+    - action: write_poi
+      type: 0x640d
+- condition:
+    - or:
+        - man_made = works|gasometer|silo|storage_tank
+        - power = generator|station|sub_station
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x6400
+- condition:
+    - man_made = survey_point
+  action:
+    - action: write_poi
+      type: 0xf305
+- condition:
+    - man_made = tower
+    - tower:type != communication
+  action:
+    - action: write_poi
+      type: 0x6411
+      level_h: 1
+- condition:
+    - man_made = tower
+    - tower:type = communication
+  action:
+    - action: write_poi
+      type: 0xf304
+      level_h: 1
+- condition:
+    - man_made = water_tower
+  action:
+    - action: write_poi
+      type: 0xf303
+- condition:
+    - man_made = water_well
+  action:
+    - action: write_poi
+      type: 0x6414
+
+- condition:
+    - maxheight = *
+  action:
+    - action: write_poi
+      type: 0xf206
+      Label: %maxheight
+- condition:
+    - bridge = yes
+    - maxweight = *
+  action:
+    - action: write_poi
+      type: 0x6401
+      Label: %maxweight
+- condition:
+    - mountain_pass = yes
+  action:
+    - action: write_poi
+      type: 0xf306
+      level_h: 1
+      ele: yes
+
+- condition:
+    - military = airfield|barracks|bunker|naval_base|range
+  action:
+    - action: write_poi
+      type: 0x640b
+- condition:
+    - military = danger_area
+  action:
+    - action: write_poi
+      type: 0x5700
+
+- condition:
+    - natural = arch
+  action:
+    - action: write_poi
+      type: 0x6601
+- condition:
+    - natural = bay
+  action:
+    - action: write_poi
+      type: 0x6503
+- condition:
+    - or:
+        - natural = beach
+        - leisure = beach_resort
+  action:
+    - action: write_poi
+      type: 0x5400
+- condition:
+    - natural = cape
+  action:
+    - action: write_poi
+      type: 0x6606
+      level_h: 2
+- condition:
+    - natural = cave_entrance
+  action:
+    - action: write_poi
+      type: 0xf30d
+      level_h: 1
+- condition:
+    - natural = cliff
+  action:
+    - action: write_poi
+      type: 0x6607
+      level_h: 1
+- condition:
+    - natural = geyser
+  action:
+    - action: write_poi
+      type: 0x6509
+      level_h: 1
+- condition:
+    - natural = glacier
+  action:
+    - action: write_poi
+      type: 0x650a
+      level_h: 1
+- condition:
+    - natural = hill
+  action:
+    - action: write_poi
+      type: 0xf309
+      level_h: 1
+      ele: yes
+- condition:
+    - natural = peak
+  action:
+    - action: write_poi
+      type: 0x6616
+      level_h: 1
+      ele: yes
+- condition:
+    - natural = ridge
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x6613
+      level_l: 1
+      level_h: 3
+- condition:
+    - natural = rock
+  action:
+    - action: write_poi
+      type: 0x6614
+- condition:
+    - natural = spring
+  action:
+    - action: write_poi
+      type: 0x6511
+- condition:
+    - natural = scree|stone
+    - only_node
+  action:
+    - action: write_poi
+      type: 0xf30a
+- condition:
+    - natural = tree
+  action:
+    - action: write_poi
+      type: 0xf404
+- condition:
+    - natural = volcano
+  action:
+    - action: write_poi
+      type: 0x6608
+      level_h: 1
+      ele: yes
+- condition:
+    - natural = water
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x650d
+
+- condition:
+    - office = accountant|architect
+  action:
+    - action: write_poi
+      type: 0x2f00
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - office = estate_agent
+        - shop = estate_agent
+  action:
+    - action: write_poi
+      type: 0xf60f
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - office = insurance
+        - shop = insurance
+  action:
+    - action: write_poi
+      type: 0xf60e
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - office = lawyer
+    - lawyer != notary
+  action:
+    - action: write_poi
+      type: 0xf60c
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - office = lawyer
+    - lawyer = notary
+  action:
+    - action: write_poi
+      type: 0xf60d
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - office = newspaper
+  action:
+    - action: write_poi
+      type: 0xf611
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - office = telecommunication
+  action:
+    - action: write_poi
+      type: 0x2f12
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - office = travel_agent
+        - shop = travel_agency
+  action:
+    - action: write_poi
+      type: 0xf613
+      contacts: yes
+      Text: %opening_hours
+
+##  Settlements
+
+- condition:
+    - place = city
+    - only_node
+    - population = \d{8,}
+  action:
+    - action: write_poi
+      type: 0x0100
+      level_h: 4
+      city: yes
+- condition:
+    - place = city
+    - only_node
+    - population = [5-9]\d{6}
+  action:
+    - action: write_poi
+      type: 0x0200
+      level_h: 4
+      city: yes
+- condition:
+    - place = city
+    - only_node
+    - population = [2-4]\d{6}
+  action:
+    - action: write_poi
+      type: 0x0300
+      level_h: 4
+      city: yes
+- condition:
+    - place = city
+    - only_node
+    - population = 1\d{6}
+  action:
+    - action: write_poi
+      type: 0x0400
+      level_h: 4
+      city: yes
+- condition:
+    - place = city
+    - only_node
+    - population = [5-9]\d{5}
+  action:
+    - action: write_poi
+      type: 0x0500
+      level_h: 4
+      city: yes
+- condition:
+    - place = city
+    - only_node
+    - population = [2-4]\d{5}
+  action:
+    - action: write_poi
+      type: 0x0600
+      level_h: 4
+      city: yes
+- condition:
+    - place = city
+    - only_node
+    - population = 1\d{5}
+  action:
+    - action: write_poi
+      type: 0x0700
+      level_h: 4
+      city: yes
+- condition:
+    - place = city
+    - only_node
+    - or:
+        - population = \d{1,5}
+        - population != *
+  action:
+    - action: write_poi
+      type: 0x0800
+      level_h: 3
+      city: yes
+
+# Low/unknown population capitals
+- condition:
+    - place = city
+    - only_node
+    - or:
+        - population = \d{1,5}
+        - population != *
+    - or:
+        - capital = 1|2|3|4
+        - and:
+            - capital = yes
+            - admin_level = 1|2|3|4
+  action:
+    - action: write_poi
+      type: 0x0800
+      level_l: 4
+      level_h: 4
+      DontFind: Y
+
+- condition:
+    - place = hamlet
+    - population != 0
+    - abandoned != yes
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x0c00
+      level_h: 2
+      city: yes
+- condition:
+    - place = island
+    - named
+  action:
+    - action: write_poi
+      type: 0x650c
+      level_h: 2
+- condition:
+    - place = isolated_dwelling
+    - population != 0
+    - abandoned != yes
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x1100
+      level_h: 2
+- condition:
+    - place = locality
+  action:
+    - action: write_poi
+      type: 0x2800
+      level_h: 2
+- condition:
+    - place = suburb
+  action:
+    - action: write_poi
+      type: 0x1f00
+      level_h: 2
+- condition:
+    - place = town
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x0800
+      level_h: 3
+      city: yes
+- condition:
+    - place = village
+    - population != 0
+    - abandoned != yes
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x0b00
+      level_h: 2
+      city: yes
+- condition:
+    - place = village|hamlet|isolated_dwelling
+    - or:
+        - abandoned = yes
+        - population = 0
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x1100
+      Label: %label (нежил.)
+      level_h: 2
+
+# Public transport
+- condition:
+    - public_transport = stop_position
+    - monorail = yes
+  action:
+    - action: write_poi
+      type: 0xf008
+      level_h: 1
+      contacts: yes
+- condition:
+    - public_transport = stop_position
+    - trolleybus = yes
+  action:
+    - action: write_poi
+      type: 0xf004
+      contacts: yes
+
+- condition:
+    - railway = halt
+    - station != subway
+  action:
+    - action: write_poi
+      type: 0xf006
+      level_h: 1
+      contacts: yes
+- condition:
+    - railway = level_crossing
+    - crossing != uncontrolled
+  action:
+    - action: write_poi
+      type: 0xf203
+- condition:
+    - railway = station
+    - station != subway
+  action:
+    - action: write_poi
+      type: 0xf007
+      level_h: 2
+      contacts: yes
+- condition:
+    - railway = station
+    - station = subway
+  action:
+    - action: write_poi
+      type: 0xf005
+      level_l: 1
+      DontFind: Y
+- condition:
+    - railway = subway_entrance
+  action:
+    - action: write_poi
+      type: 0xf005
+      contacts: yes
+- condition:
+    - railway = tram_stop
+  action:
+    - action: write_poi
+      type: 0xf003
+      contacts: yes
+
+- condition:
+    - shop = adult|erotic|gift|toys
+  action:
+    - action: write_poi
+      type: 0xf709
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = alcohol|newsagent|video
+  action:
+    - action: write_poi
+      type: 0x2e00
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = beverages|butcher|deli|farm|greengrocer|grocery|supermarket
+  action:
+    - action: write_poi
+      type: 0x2e02
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = bakery|confectionery
+  action:
+    - action: write_poi
+      type: 0x2a0d
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = bicycle|dive|outdoor|sports
+  action:
+    - action: write_poi
+      type: 0xf707
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = baby_goods|books|frame|hearing_aids|photo|stationery|tobacco
+  action:
+    - action: write_poi
+      type: 0x2e0a
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = car
+    - service = repair
+  action:
+    - action: write_poi
+      type: 0x2f03
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = car|car_repair
+    - service = tyres
+  action:
+    - action: write_poi
+      type: 0xf209
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = car_repair|motorcycle_repair
+    - service != tyres
+  action:
+    - action: write_poi
+      type: 0x2f03
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = car|car_parts|motorcycle|motorcycle_parts
+    - or:
+        - service = dealer|parts
+        - service != *
+  action:
+    - action: write_poi
+      type: 0x2f07
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = chemist
+  action:
+    - action: write_poi
+      type: 0xf704
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = clothes|fashion|second_hand
+  action:
+    - action: write_poi
+      type: 0x2e07
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = computer
+  action:
+    - action: write_poi
+      type: 0x2e0b
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = convenience|general|kiosk
+  action:
+    - action: write_poi
+      type: 0x2e06
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = copyshop
+  action:
+    - action: write_poi
+      type: 0xf612
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = department_store
+  action:
+    - action: write_poi
+      type: 0x2e01
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = doityourself|garden_centre|glaziery
+  action:
+    - action: write_poi
+      type: 0x2e08
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = dry_cleaning
+  action:
+    - action: write_poi
+      type: 0xf604
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = electronics|hifi
+  action:
+    - action: write_poi
+      type: 0xf705
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = curtain|fabrics|hardware
+  action:
+    - action: write_poi
+      type: 0xf703
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = florist
+  action:
+    - action: write_poi
+      type: 0xf70a
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - shop = funeral_directors
+        - amenity = mortuary
+  action:
+    - action: write_poi
+      type: 0x2f00
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = furniture
+  action:
+    - action: write_poi
+      type: 0x2e09
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = hairdresser|beauty
+  action:
+    - action: write_poi
+      type: 0xf602
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = hunting
+  action:
+    - action: write_poi
+      type: 0xf708
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = jewelry
+  action:
+    - action: write_poi
+      type: 0xf70b
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = laundry
+  action:
+    - action: write_poi
+      type: 0xf604
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = mall
+  action:
+    - action: write_poi
+      type: 0x2e04
+      level_h: 1
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = massage
+  action:
+    - action: write_poi
+      type: 0x2f00
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = mobile_phone
+  action:
+    - action: write_poi
+      type: 0xf706
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = pawnbroker
+  action:
+    - action: write_poi
+      type: 0x2f06
+      contacts: yes
+      Label: %label (Ломбард)
+      Text: %opening_hours
+- condition:
+    - shop = pet
+  action:
+    - action: write_poi
+      type: 0xf70c
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - shop = photo_studio
+        - craft = photographer
+  action:
+    - action: write_poi
+      type: 0xf605
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - shop = shoes
+  action:
+    - action: write_poi
+      type: 0xf702
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - shop = shoe_repair|shoes_repair
+        - craft = shoemaker
+  action:
+    - action: write_poi
+      type: 0xf60a
+      contacts: yes
+      Text: %opening_hours
+
+- condition:
+    - sport = 9pin|10pin|bowls
+  action:
+    - action: write_poi
+      type: 0x2d07
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - sport = golf
+  action:
+    - action: write_poi
+      type: 0x2d05
+- condition:
+    - sport = motor
+  action:
+    - action: write_poi
+      type: 0x2f0d
+- condition:
+    - sport = skiing
+  action:
+    - action: write_poi
+      type: 0x2d06
+- condition:
+    - sport = scuba_diving
+  action:
+    - action: write_poi
+      type: 0x5c00
+- condition:
+    - or:
+        - amenity = swimming_pool
+        - leisure = swimming_pool
+        - sport = swimming
+  action:
+    - action: write_poi
+      type: 0x2d09
+      contacts: yes
+      Text: %opening_hours
+
+- condition:
+    - tourism = attraction
+  action:
+    - action: write_poi
+      type: 0x2c00
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - tourism = camp_site|caravan_site
+  action:
+    - action: write_poi
+      type: 0x2b03
+      contacts: yes
+- condition:
+    - tourism = guest_house|hostel
+  action:
+    - action: write_poi
+      type: 0x2b02
+      contacts: yes
+- condition:
+    - or:
+        - building = dormitory
+        - amenity = dormitory
+  action:
+    - action: write_poi
+      type: 0x2b00
+      contacts: yes
+- condition:
+    - tourism = hotel|motel
+  action:
+    - action: write_poi
+      type: 0x2b01
+      contacts: yes
+- condition:
+    - tourism = information
+  action:
+    - action: write_poi
+      type: 0x4c00
+- condition:
+    - tourism = museum
+  action:
+    - action: write_poi
+      type: 0x2c02
+      contacts: yes
+      Text: %opening_hours
+- condition:
+    - or:
+        - tourism = picnic_site
+        - amenity = bbq
+  action:
+    - action: write_poi
+      type: 0x4a00
+- condition:
+    - or:
+        - tourism = resort
+        - leisure = resort
+  action:
+    - action: write_poi
+      type: 0x2b04
+      contacts: yes
+- condition:
+    - tourism = viewpoint
+    - only_node
+  action:
+    - action: write_poi
+      type: 0x5200
+- condition:
+    - tourism = aquarium|zoo
+  action:
+    - action: write_poi
+      type: 0x2c07
+      contacts: yes
+      Text: %opening_hours
+
+- condition:
+    - traffic_calming = yes|bump|cushion|hump|table
+  action:
+    - action: write_poi
+      type: 0xf204
+
+- condition:
+    - waterway = boatyard
+  action:
+    - action: write_poi
+      type: 0x2f09
+      contacts: yes
+- condition:
+    - waterway = dam
+  action:
+    - action: write_poi
+      type: 0x6407
+- condition:
+    - waterway = weir|lock_gate
+  action:
+    - action: write_poi
+      type: 0x5500
+- condition:
+    - waterway = rapids
+  action:
+    - action: write_poi
+      type: 0x650e
+      level_h: 1
+- condition:
+    - waterway = waterfall
+  action:
+    - action: write_poi
+      type: 0x6508
+      level_h: 2

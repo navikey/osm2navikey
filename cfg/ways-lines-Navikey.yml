@@ -1,0 +1,233 @@
+## Navikey lines config
+
+--- ways
+---
+
+- condition:
+    - addr:interpolation = all|even|odd
+    - only_way
+  action:
+    - action: process_interpolation
+      type: 0x2800
+      contacts: yes
+
+# Railways
+- condition:
+    - railway = rail
+    - service != siding|spur|yard
+  action:
+    - action: write_line
+      type: 0x14
+      level_h: 3
+
+- condition:
+    - or:
+        - and:
+            - railway = rail
+            - service = siding|spur|yard
+        - railway = disused|siding|spur|yard|narrow_gauge|light_rail
+  action:
+    - action: write_line
+      type: 0x14
+      level_h: 1
+
+# Aerialway
+
+- condition:
+    - or:
+        - aerialway = cable_car|chair_lift|drag_lift|gondola|goods|j-bar|mixed_lift|platter|t-bar
+        - railway = funicular
+  action:
+    - action: write_line
+      type: 0x41
+      level_h: 1
+
+# Water
+
+- condition:
+    - natural = coastline
+  action:
+    - action: load_coastline
+    - action: write_line
+      type: 0x15
+      level_h: 4
+
+- condition:
+    - waterway = stream
+    - intermittent != yes
+    - stream != intermittent|ephemeral
+    - water != intermittent
+  action:
+    - action: write_line
+      type: 0x18
+      level_h: 1
+
+- condition:
+    - waterway = canal
+  action:
+    - action: write_line
+      type: 0x1f
+      level_h: 2
+
+- condition:
+    - waterway = river
+    - intermittent != yes
+    - water != intermittent
+  action:
+    - action: write_line
+      type: 0x1f
+      level_h: 3
+
+- condition:
+    - or:
+        - barrier = ditch
+        - waterway = ditch|drain
+        - and:
+            - waterway = river|stream
+            - or:
+                - intermittent = yes
+                - stream = intermittent|ephemeral
+                - water = intermittent
+  action:
+    - action: write_line
+      type: 0x26
+      level_h: 1
+
+
+# Boundaries
+
+- condition:
+    - boundary = administrative
+    - admin_level = 2
+    - only_way
+  action:
+    - action: write_line
+      type: 0x1e
+      level_h: 4
+
+- condition:
+    - boundary = administrative
+    - admin_level = 3|4
+    - only_way
+  action:
+    - action: write_line
+      type: 0x1c
+      level_l: 2
+      level_h: 4
+
+- condition:
+    - boundary = administrative
+    - admin_level = 5|6
+    - only_way
+  action:
+    - action: write_line
+      type: 0x1d
+      level_l: 2
+      level_h: 3
+
+
+
+# The rest
+
+- condition:
+    - aeroway = runway
+  action:
+    - action: write_line
+      type: 0x27
+      level_h: 1
+
+- condition:
+    - aeroway = taxiway
+  action:
+    - action: write_line
+      type: 0x07
+      level_h: 1
+
+- condition:
+    - man_made = pipeline
+    - ~inside_city
+  action:
+    - action: write_line
+      type: 0x28
+      level_h: 1
+
+- condition:
+    - power = line
+  action:
+    - action: write_line
+      type: 0x29
+      level_h: 1
+
+# Navitel specific
+
+- condition:
+    - barrier = wall|city_wall|fence|hedge|retaining_wall|wire_fence
+  action:
+    - action: write_line
+      type: 0x46
+      Label: 
+
+- condition:
+    - highway = construction
+  action:
+    - action: write_line
+      type: 0x00
+
+- condition:
+    - highway = service
+    - access = private
+  action:
+    - action: write_line
+      type: 0x16
+
+- condition:
+    - man_made = cutline
+  action:
+    - action: write_line
+      type: 0x48
+      level_h: 2
+
+- condition:
+    - natural = cliff
+  action:
+    - action: write_line
+      type: 0x22
+
+- condition:
+    - natural = ridge
+  action:
+    - action: write_line
+      type: 0x3d
+      level_l: 1
+      level_h: 3
+
+
+- condition:
+    - power = minor_line
+    - ~inside_city
+  action:
+    - action: write_line
+      type: 0x29
+
+- condition:
+    - railway = monorail
+  action:
+    - action: write_line
+      type: 0x40
+      level_h: 1
+
+- condition:
+    -  railway = tram
+  action:
+    - action: write_line
+      type: 0x3f
+
+- condition:
+    - or:
+        - railway = platform
+        - public_transport = platform
+        - pt = platform
+    - layer != -[1-5]
+  action:
+    - action: write_line
+      type: 0x16
