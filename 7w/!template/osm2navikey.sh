@@ -18,7 +18,7 @@ cd ..
 SKIP_F=
 NAME_N=`echo $NAME_C| sed 's/\(.\)/\u\1/'`
 TMP=`grep -i $NAME_C ./iso-3166-1-a2-en.txt`
-REG=`printf $TMP`
+REG=`printf $TMP | awk '{ printf $1 }'`
 
 for file in $FILES; do \
   if (test -s osm/$file); then \
