@@ -15,15 +15,17 @@ FILES=`find *.osm -print |
   done`
 cd ..
 
-SKIP_F=
-NAME_N=`echo $NAME_C| sed 's/\(.\)/\u\1/'`
-TMP=`grep -i $NAME_C ./iso-3166-1-a2-en.txt`
-REG=`printf $TMP | awk '{ printf $1 }'`
+# Ищем коды страны и региона
+TMP=`grep -i $NAME_C ./iso-3166-2.csv`
+# Регион
+REG=`printf $TMP | awk '{ printf $4 }'`
+# Страна
+CNR=`printf $TMP | awk '{ printf $2 }'`
 
 for file in $FILES; do \
   if (test -s osm/$file); then \
     echo "Good: " $file;
-     ../../cfg/osm2mp.pl --bpoly=poly/${file%.*}.poly --defaultcountry="$REG" --config=../../cfg/Navikey-en.cfg osm/$file > mp-navikey/${file%.*}.mp
+     ../../cfg/osm2mp.pl --bpoly=poly/${file%.*}.poly --defaultcountry=$CNR --defaultregion=$REG --config=../../cfg/Navikey-en.cfg osm/$file > mp-navikey/${file%.*}.mp
   else
     echo "Error in file: " $file;
   fi
