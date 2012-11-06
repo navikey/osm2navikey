@@ -20,7 +20,7 @@ TMP=`grep -i $NAME_C ./iso-3166-2.csv`
 # Регион
 REG=`printf $TMP | awk '{ printf $4 }'`
 # Страна
-CNR=`printf $TMP | awk '{ printf $2 }'`
+CNR=`printf $TMP | awk '{ printf $1 }'`
 
 for file in $FILES; do \
   if (test -s osm/$file); then \
@@ -32,7 +32,7 @@ for file in $FILES; do \
 #   if so you may need to uncomment lines below
 #    TMP=`grep -i ${file%.*} ./iso-3166-2.csv`
 #    REG=`printf $TMP | awk '{ printf $4 }'`
-     ../../cfg/osm2mp.pl --bpoly=poly/${file%.*}.poly --defaultcountry=$CNR --defaultregion=$REG --config=../../cfg/Navikey-en.cfg osm/$file > mp-navikey/${file%.*}.mp
+     ../../cfg/osm2mp.pl --bpoly=poly/${file%.*}.poly --defaultcountry=$CNR --defaultregion=$REG --config=../../cfg/Navikey-en.cfg osm/$file -o mp-navikey/${file%.*}.mp
   else
     echo "Error in file: " $file;
   fi
