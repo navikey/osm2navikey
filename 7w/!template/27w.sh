@@ -2,7 +2,7 @@
 ROOTdir=/home/osm/7w
 CNTRY=setupcountry
 
-LOG_FILE=/home/osmuser/7w/log/$CNTRY.log
+LOG_FILE=/home/osm/7w/log/$CNTRY.log
 
 datt=`date +%Y-%m-%d' '%H:%M`
 echo $datt ": Start converting "$CNTRY >>$LOG_FILE
