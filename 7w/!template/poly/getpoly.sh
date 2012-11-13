@@ -15,7 +15,7 @@ if (test -e $REG) then
 else
 # эта строчка скачивает границы всей страны если нам понадобится просто обрезка.
 # по границам страны
-  ../../cfg/getbound.pl -onering $REG >$CNTRY.poly
+  ../../cfg/getbound.pl -aliases="../../cfg/aliases.yml" -onering $REG >$CNTRY.poly
 # Далее нам необходимо скачать границы регионов внутри страны по номерам отношений
 # relation границ (boundary = administrative) обычно для страны adminlevel=2
 # для региона внутри страны adminlevel=4 (для разбивки региона adminlevel=6)
