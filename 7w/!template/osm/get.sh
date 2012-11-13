@@ -47,13 +47,14 @@ wget -i urls  >> $LOG_FILE
 # закоментировать решеткой нижнюю строку чтобы воспользоваться вторым вариантом
 bunzip2 -f *.bz2  1>> $LOG_FILE
 
+# раскоментировать строчку ниже чтобы воспользоваться вторым вариантом
+# ../splitit.sh >$LOG_FILE
+
 $ROOTdir/$BASE/osm2navikey.sh  >> $LOG_FILE
 
 cd $ROOTdir
 cd $BASE/osm
 rm -f *.osm > $LOG_FILE
-# раскоментировать строчку ниже чтобы воспользоваться вторым вариантом
-# ../splitit.sh >$LOG_FILE
 
 ../27w.sh
 
