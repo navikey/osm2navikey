@@ -11,7 +11,7 @@ TMP=`grep -i $CNTRY ./../iso-3166-1-a2-en.txt`
 REG=`printf $TMP | tr A-Z a-z`
 
 if (test -e $REG) then
-  echo "No country found. please edit script and set REG to relation number of boun
+  echo "No country found. please edit script and set REG to relation number of bounds"
 else
 # эта строчка скачивает границы всей страны если нам понадобится просто обрезка.
 # по границам страны
