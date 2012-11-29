@@ -252,6 +252,13 @@
     - action: modify_road
       type: 0x1b
 
+- condition:
+    - route = ferry
+  action:
+    - action: load_road
+      type: 0x1b
+      level_h: 2
+      routeparams: '0,0,0,0,0,0,0,0,0,0,0,0'
 
 ## Tracks
 
