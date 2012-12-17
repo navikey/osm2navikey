@@ -12,8 +12,11 @@
   action:
     - action:       load_city
       name:         %place
-      region:       %region
-      country:      %country
+    
+- condition:
+    - landuse = *
+  action:
+    - action:       load_access_area
     
     
 

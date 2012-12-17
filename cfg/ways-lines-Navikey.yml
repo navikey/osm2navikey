@@ -158,7 +158,7 @@
       type: 0x29
       level_h: 1
 
-# Navitel specific
+# Navikey specific
 
 - condition:
     - barrier = wall|city_wall|fence|hedge|retaining_wall|wire_fence

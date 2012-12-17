@@ -168,7 +168,7 @@
       routeparams: '2,1,0,0,0,0,0,0,0,0,0,0'
 
 - condition:
-    - highway = road
+    - highway = track|road
   action:
     - action: load_road
       type: 0x03
@@ -176,7 +176,7 @@
       routeparams: '2,0,0,0,0,0,0,0,0,0,0,0'
 
 - condition:
-    - highway = road
+    - highway = track|road
     - inside_city
   action:
     - action: load_road
@@ -215,6 +215,15 @@
     - access != private
     - service != parking_aisle
     - area != yes
+    - layer != -?[2-9]
+  action:
+    - action: load_road
+      type: 0x07
+      routeparams: '1,0,0,0,0,0,0,0,0,0,0,0'
+
+- condition:
+    - highway = service
+    - access != private
     - layer != -?[2-9]
   action:
     - action: load_road

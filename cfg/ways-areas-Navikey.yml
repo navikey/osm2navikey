@@ -46,7 +46,7 @@
 
 - condition:
     - landuse = residential|farmyard
-    - place != village|hamlet|isolated_dwelling
+    - place != suburb|village|hamlet|isolated_dwelling
     - residential != urban
   action:
     - action: write_polygon
