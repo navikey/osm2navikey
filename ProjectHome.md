@@ -1,0 +1,1 @@
+Scripts and config to convert OSM to Navikey Seven Ways
